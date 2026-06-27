@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api';
 import { useAuth } from '../context/AuthContext';
+import NewTicketModal from '../components/NewTicketModal';
 
 const roleBadgeColors = {
   admin: 'bg-indigo-100 text-indigo-700',
@@ -14,9 +15,9 @@ export default function DashboardPage() {
   const [stats, setStats] = useState({ total: 0, open: 0, pending: 0, resolved: 0 });
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [showModal, setShowModal] = useState(false);
 
-  useEffect(() => {
-    const fetchStats = async () => {
+  const fetchStats = async () => {
       setLoading(true);
       setError(null);
       try {
@@ -38,6 +39,7 @@ export default function DashboardPage() {
         setLoading(false);
       }
     };
+  useEffect(() => {
     fetchStats();
   }, []);
 
@@ -93,12 +95,12 @@ export default function DashboardPage() {
 
             {/* Actions */}
             <div className="flex gap-3">
-              <Link
-                to="/tickets"
+              <button
+                onClick={() => setShowModal(true)}
                 className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-5 py-2.5 rounded-md transition-colors"
               >
                 New Ticket
-              </Link>
+              </button>
               <Link
                 to="/tickets"
                 className="bg-gray-200 hover:bg-gray-300 text-gray-700 font-medium px-5 py-2.5 rounded-md transition-colors"
@@ -109,6 +111,13 @@ export default function DashboardPage() {
           </>
         )}
       </div>
+
+      {showModal && (
+        <NewTicketModal
+          onClose={() => setShowModal(false)}
+          onSuccess={() => fetchStats()}
+        />
+      )}
     </div>
   );
 }
