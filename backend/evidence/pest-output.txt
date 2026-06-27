@@ -1,0 +1,38 @@
+﻿  PASS  Tests\Unit\ExampleTest
+  ✓ that true is true                                                                                            0.02s
+
+  PASS  Tests\Feature\AuthTest
+  ✓ it registers a new user and returns a token                                                                  0.94s
+  ✓ it logs in with valid credentials and returns a token                                                        0.07s
+  ✓ it returns 401 with wrong password                                                                           0.24s
+  ✓ it returns the authenticated user via me endpoint                                                            0.03s
+  ✓ it revokes the token on logout                                                                               0.03s
+
+  PASS  Tests\Feature\ExampleTest
+  ✓ the application returns a successful response                                                                0.07s
+
+  PASS  Tests\Feature\MultiTenancyTest
+  ✓ it scopes tickets to the authenticated users organization                                                    0.05s
+  ✓ it returns 404 when accessing a ticket from another organization                                             0.04s
+
+  PASS  Tests\Feature\ReplyTest
+  ✓ it agent can post a public reply                                                                             0.04s
+  ✓ it agent can post an internal note                                                                           0.03s
+  ✓ it customer can post a reply                                                                                 0.03s
+  ✓ it customer posting a note gets saved as reply instead                                                       0.07s
+  ✓ it customer listing replies does not see notes                                                               0.04s
+  ✓ it agent listing replies sees both replies and notes                                                         0.03s
+
+  PASS  Tests\Feature\TicketTest
+  ✓ it admin can create a ticket                                                                                 0.04s
+  ✓ it index returns paginated tickets                                                                           0.05s
+  ✓ it index filters by status                                                                                   0.03s
+  ✓ it index search works on subject                                                                             0.03s
+  ✓ it show returns a single ticket                                                                              0.03s
+  ✓ it agent can update ticket status                                                                            0.03s
+  ✓ it customer cannot update ticket                                                                             0.04s
+  ✓ it admin can delete a ticket                                                                                 0.04s
+  ✓ it customer cannot delete a ticket                                                                           0.03s
+
+  Tests:    24 passed (82 assertions)
+  Duration: 2.57s
