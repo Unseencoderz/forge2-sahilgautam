@@ -7,7 +7,6 @@ use App\Models\Ticket;
 use App\Models\TicketReply;
 use App\Models\User;
 use Illuminate\Database\Seeder;
-use Illuminate\Support\Facades\Hash;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,7 +23,7 @@ class DatabaseSeeder extends Seeder
         $alice = User::create([
             'name' => 'Alice Admin',
             'email' => 'admin@acme.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
             'organization_id' => $org->id,
             'role' => 'admin',
             'email_verified_at' => now(),
@@ -33,7 +32,7 @@ class DatabaseSeeder extends Seeder
         $bob = User::create([
             'name' => 'Bob Agent',
             'email' => 'agent1@acme.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
             'organization_id' => $org->id,
             'role' => 'agent',
             'email_verified_at' => now(),
@@ -42,7 +41,7 @@ class DatabaseSeeder extends Seeder
         $carol = User::create([
             'name' => 'Carol Agent',
             'email' => 'agent2@acme.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
             'organization_id' => $org->id,
             'role' => 'agent',
             'email_verified_at' => now(),
@@ -51,7 +50,7 @@ class DatabaseSeeder extends Seeder
         $dave = User::create([
             'name' => 'Dave Customer',
             'email' => 'cust1@acme.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
             'organization_id' => $org->id,
             'role' => 'customer',
             'email_verified_at' => now(),
@@ -60,7 +59,7 @@ class DatabaseSeeder extends Seeder
         $eve = User::create([
             'name' => 'Eve Customer',
             'email' => 'cust2@acme.com',
-            'password' => Hash::make('password'),
+            'password' => 'password',
             'organization_id' => $org->id,
             'role' => 'customer',
             'email_verified_at' => now(),
