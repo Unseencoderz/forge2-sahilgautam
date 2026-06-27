@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
+import TicketsPage from './pages/TicketsPage';
 import PrivateRoute from './components/PrivateRoute';
 
 export default function App() {
@@ -9,6 +10,7 @@ export default function App() {
       <Route path="/login" element={<LoginPage />} />
       <Route element={<PrivateRoute />}>
         <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/tickets" element={<TicketsPage />} />
         <Route path="/" element={<Navigate to="/dashboard" replace />} />
       </Route>
     </Routes>
