@@ -8,18 +8,11 @@ use Symfony\Component\HttpFoundation\Response;
 
 class EnsureRole
 {
-    protected array $roles;
-
-    public function __construct(string ...$roles)
-    {
-        $this->roles = $roles;
-    }
-
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next, ...$roles): Response
     {
         $user = $request->user();
 
-        if (! $user || ! in_array($user->role, $this->roles)) {
+        if (! $user || ! in_array($user->role, $roles)) {
             abort(403, 'This action is unauthorized.');
         }
 
