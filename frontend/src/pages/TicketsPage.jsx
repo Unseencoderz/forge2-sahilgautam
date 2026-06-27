@@ -76,10 +76,9 @@ export default function TicketsPage() {
   const [showModal, setShowModal] = useState(false);
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 py-8">
-        {/* Header */}
-        <div className="flex items-center justify-between mb-6">
+    <>
+      {/* Header */}
+      <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold text-gray-900">Tickets</h1>
           <button
             onClick={() => setShowModal(true)}
@@ -220,7 +219,6 @@ export default function TicketsPage() {
             )}
           </>
         )}
-      </div>
 
       {showModal && (
         <NewTicketModal
@@ -228,6 +226,6 @@ export default function TicketsPage() {
           onSuccess={() => fetchTickets()}
         />
       )}
-    </div>
+    </>
   );
 }

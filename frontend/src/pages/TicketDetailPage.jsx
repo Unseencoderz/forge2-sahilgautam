@@ -131,7 +131,7 @@ export default function TicketDetailPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="flex items-center justify-center py-20">
         <div className="w-8 h-8 border-3 border-indigo-600 border-t-transparent rounded-full animate-spin"></div>
       </div>
     );
@@ -139,7 +139,7 @@ export default function TicketDetailPage() {
 
   if (error || !ticket) {
     return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+      <div className="flex items-center justify-center py-20">
         <div className="text-center">
           <p className="text-red-600 mb-4">{error || 'Ticket not found.'}</p>
           <Link to="/tickets" className="text-indigo-600 hover:text-indigo-800 font-medium">
@@ -156,9 +156,8 @@ export default function TicketDetailPage() {
     : replies.filter((r) => r.type === 'reply');
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 py-8">
-        {/* Back link */}
+    <div className="max-w-4xl mx-auto">
+      {/* Back link */}
         <Link to="/tickets" className="text-sm text-indigo-600 hover:text-indigo-800 font-medium mb-4 inline-block">
           ← Back to Tickets
         </Link>
@@ -287,8 +286,7 @@ export default function TicketDetailPage() {
               {submitting ? 'Sending...' : replyType === 'note' ? 'Send Note' : 'Send Reply'}
             </button>
           </div>
-        </form>
-      </div>
+      </form>
     </div>
   );
 }
