@@ -2,7 +2,7 @@
 
 | Task | Description | Assignee | Status |
 |------|-------------|----------|--------|
-| **TASK-1** | Laravel 11 scaffolding in backend/, Sanctum, /api/health endpoint | OpenClaw | To Do |
+| **TASK-1** | Laravel 11 scaffolding in backend/, Sanctum, /api/health endpoint | OpenClaw | **Done** |
 | **TASK-2** | Database migrations (organizations, users with roles, tickets, ticket_replies) | Unassigned | To Do |
 | **TASK-3** | Auth API (register, login, logout, me) with EnsureRole middleware | Unassigned | To Do |
 | **TASK-4** | OrganizationScope global scope for multi-tenancy isolation | Unassigned | To Do |
