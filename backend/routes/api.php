@@ -5,7 +5,7 @@ use App\Http\Controllers\Api\ReplyController;
 use App\Http\Controllers\Api\TicketController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/health', fn () => response()->json(['status' => 'ok', 'service' => 'PulseDesk']));
+Route::get('/health', fn () => response()->json(['status' => 'ok', 'service' => 'PulseDesk', 'version' => '1.0.0']));
 
 Route::prefix('auth')->group(function () {
     Route::post('register', [AuthController::class, 'register']);

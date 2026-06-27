@@ -1,0 +1,35 @@
+=== Health Endpoint ===
+GET /api/health
+Response: {"status":"ok","service":"PulseDesk","version":"1.0.0"}
+
+=== Login Test ===
+POST /api/auth/login
+Body: {"email":"admin@acme.com","password":"password"}
+
+Response:
+{
+  "user": {
+    "id": 1,
+    "name": "Alice Admin",
+    "email": "admin@acme.com",
+    "role": "admin",
+    "organization_id": 1
+  },
+  "token": "1|13CbCIgpcnckjGNnlyPBVmDlE7WuGDZupQCfSjEpb655bf25"
+}
+
+Result: SUCCESS - Token returned
+
+=== Route List (11 API routes) ===
+POST      api/auth/login .......... Api\AuthController@login
+POST      api/auth/logout ......... Api\AuthController@logout
+GET|HEAD  api/auth/me ............. Api\AuthController@me
+POST      api/auth/register ....... Api\AuthController@register
+GET|HEAD  api/health .............. (closure)
+GET|HEAD  api/tickets ............. Api\TicketController@index
+POST      api/tickets ............. Api\TicketController@store
+GET|HEAD  api/tickets/{ticket} .... Api\TicketController@show
+PUT       api/tickets/{ticket} .... Api\TicketController@update
+DELETE    api/tickets/{ticket} .... Api\TicketController@destroy
+GET|HEAD  api/tickets/{ticket}/replies .. Api\ReplyController@index
+POST      api/tickets/{ticket}/replies .. Api\ReplyController@store
