@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\ReplyController;
 use App\Http\Controllers\Api\TicketController;
 use Illuminate\Support\Facades\Route;
 
@@ -21,4 +22,7 @@ Route::middleware('auth:sanctum')->group(function () {
         ->middleware('role:admin,agent');
     Route::delete('tickets/{ticket}', [TicketController::class, 'destroy'])
         ->middleware('role:admin');
+
+    Route::get('tickets/{ticket}/replies', [ReplyController::class, 'index']);
+    Route::post('tickets/{ticket}/replies', [ReplyController::class, 'store']);
 });
