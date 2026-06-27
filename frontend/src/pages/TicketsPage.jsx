@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import api from '../api';
+import NewTicketModal from '../components/NewTicketModal';
 
 const statusBadge = {
   open: 'bg-blue-100 text-blue-700',
@@ -72,9 +73,7 @@ export default function TicketsPage() {
     fetchTickets();
   }, [fetchTickets]);
 
-  const handleNewTicket = () => {
-    alert('New ticket modal — coming soon!');
-  };
+  const [showModal, setShowModal] = useState(false);
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -83,7 +82,7 @@ export default function TicketsPage() {
         <div className="flex items-center justify-between mb-6">
           <h1 className="text-2xl font-bold text-gray-900">Tickets</h1>
           <button
-            onClick={handleNewTicket}
+            onClick={() => setShowModal(true)}
             className="bg-indigo-600 hover:bg-indigo-700 text-white font-medium px-4 py-2 rounded-md transition-colors"
           >
         New Ticket
@@ -222,6 +221,13 @@ export default function TicketsPage() {
           </>
         )}
       </div>
+
+      {showModal && (
+        <NewTicketModal
+          onClose={() => setShowModal(false)}
+          onSuccess={() => fetchTickets()}
+        />
+      )}
     </div>
   );
 }
